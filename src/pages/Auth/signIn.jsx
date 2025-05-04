@@ -40,17 +40,6 @@ const SignIn = () => {
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      {/* Left side with image - hidden on mobile, visible on md and up */}
-      <div className="hidden md:flex md:w-1/2 lg:w-3/5 p-8 items-center justify-center bg-gradient-to-b from-slate-50 via-blue-50 to-indigo-100 overflow-hidden">
-        <div className="relative w-full h-full max-w-2xl flex items-center justify-center">
-          <img
-            src={signin}
-            alt="World Globe with Flags"
-            className="rounded-2xl  object-cover w-full max-h-[80vh]"
-          />
-         
-        </div>
-      </div>
       
       {/* Right side with login form */}
       <div className="w-full md:w-1/2 lg:w-2/5 flex items-center justify-center p-4 md:p-8">
