@@ -18,7 +18,7 @@ const SignIn = () => {
   useEffect(() => {
     // If authentication was successful, navigate to country list
     if (isAuthenticated && successMessage) {
-      message.success(successMessage);
+      // message.success(successMessage);
       setTimeout(() => {
         navigate('/countrylist');
       }, 1000);
