@@ -5,7 +5,8 @@ import {
   LogOut,
   Menu,
   X,
-  ChevronDown
+  ChevronDown,
+  Eye,
 } from 'lucide-react';
 import sideBarMenuItems from '../constent/sideBarMenuItems';    // ← same file
 
@@ -45,12 +46,19 @@ const CountryExplorerNavbar = () => {
       try {
         const user = JSON.parse(userJson);
         setUserData({
-          fullName: user.fullName || 'Guest User',
-          role:     user.role     || 'Free Account'
+          fullName: user.fullName ,
+          role:     user.role     
         });
       } catch (e) {
         console.error('error parsing user', e);
       }
+    }
+    else{
+      //display button for sign in and sign up
+      setUserData({
+        fullName: 'Guest User',
+        role:     'Free Account'
+      });
     }
   }, []);
 
@@ -74,10 +82,10 @@ const CountryExplorerNavbar = () => {
             onClick={() => goto('/')}
           >
             <div className="bg-blue-600 p-1.5 rounded-lg">
-              <Globe className="w-6 h-6 text-white" />
+              <Eye className="w-6 h-6 text-white" />
             </div>
             <span className="ml-2 hidden sm:inline-block text-lg font-bold text-white">
-              Country<span className="text-blue-400">Explorer</span>
+              Gloable<span className="text-blue-400">Exp</span>
             </span>
           </div>
 
@@ -151,13 +159,30 @@ const CountryExplorerNavbar = () => {
             </div>
 
             {/* logout button (desktop only) */}
-            <button
-              onClick={() => setShowLogoutConfirm(true)}
-              className="hidden md:inline-flex p-2 rounded-md text-gray-300 hover:text-white hover:bg-red-600 transition"
-              title="Logout"
-            >
-              <LogOut className="w-5 h-5" />
-            </button>
+
+            {/*display button for sign in and sign up*/}
+            {userData.fullName === 'Guest User' ? (
+              <div className="hidden md:flex space-x-2">
+                <button
+
+                  onClick={() => goto('/signin')}
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                >
+                  Sign In
+                </button>
+               
+              </div>
+            ) : (
+              <button
+
+                onClick={() => setShowLogoutConfirm(true)}
+                className="flex items-center px-3 py-2 rounded-md text-sm font-medium text-red-400 hover:bg-red-600 hover:text-white"
+              >
+                <LogOut className="w-4 h-4 mr-1.5" />
+                Logout
+              </button>
+            )}
+            
 
             {/* hamburger (mobile) */}
             <button

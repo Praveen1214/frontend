@@ -21,11 +21,10 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          {/* Default route - opens SignIn */}
-          <Route path="/" element={<SignIn />} />
-
+          
           {/* Routes with sidebar/layout */}
           <Route element={<MainLayout />}>
+            <Route path="/" element={<CountryList />} />
             <Route path="/countrylist" element={<CountryList />} />
             <Route path="/country/currancy" element={<FillterdByCurruncy />} />
             <Route path="/country/language" element={<FillterByLanguage />} />

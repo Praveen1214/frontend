@@ -15,6 +15,7 @@ const SignIn = () => {
     // If authentication was successful, navigate to country list
     if (isAuthenticated && successMessage) {
       // Using browser alert instead of Ant Design message
+      // alert(successMessage);
       setTimeout(() => {
         navigate('/countrylist');
       }, 1000);
